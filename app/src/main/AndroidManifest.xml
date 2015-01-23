@@ -24,6 +24,10 @@
             android:name=".RoomActivity"
             android:label="@string/title_activity_room" >
         </activity>
+        <activity
+            android:name=".ResultActivity"
+            android:label="@string/title_activity_result" >
+        </activity>
     </application>
 
 </manifest>

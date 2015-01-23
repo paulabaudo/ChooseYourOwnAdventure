@@ -17,5 +17,6 @@
     <string name="text_view_room_text">You have entered a room with two doors</string>
     <string name="button_door_one_text">Enter Door 1</string>
     <string name="button_door_two_text">Enter Door 2</string>
+    <string name="title_activity_result">ResultActivity</string>
 
 </resources>
