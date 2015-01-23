@@ -33,4 +33,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_right_text"
+        android:id="@+id/button_go_right"
+        android:layout_below="@+id/button_continue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
 </RelativeLayout>
