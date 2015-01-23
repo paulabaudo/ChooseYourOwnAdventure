@@ -8,7 +8,8 @@
     <string name="button_start_traveling_text">Start traveling</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_traveling">TravelingActivity</string>
-    <string name="title_activity_alley">AlleyActivity</string>
-    <string name="title_activity_room">RoomActivity</string>
+    <string name="title_activity_alley">Alley</string>
+    <string name="title_activity_room">Room</string>
+    <string name="text_view_alley_text">You have ventured down a dark alley, where would you like to go next</string>
 
 </resources>
