@@ -15,5 +15,7 @@
     <string name="button_continue_text">Continue</string>
     <string name="button_right_text">Go Right</string>
     <string name="text_view_room_text">You have entered a room with two doors</string>
+    <string name="button_door_one_text">Enter Door 1</string>
+    <string name="button_door_two_text">Enter Door 2</string>
 
 </resources>
