@@ -14,5 +14,6 @@
     <string name="button_left_text">Go Left</string>
     <string name="button_continue_text">Continue</string>
     <string name="button_right_text">Go Right</string>
+    <string name="text_view_room_text">You have entered a room with two doors</string>
 
 </resources>
