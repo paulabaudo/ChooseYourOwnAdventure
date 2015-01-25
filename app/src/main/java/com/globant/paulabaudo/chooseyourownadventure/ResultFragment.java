@@ -38,9 +38,9 @@ public class ResultFragment extends Fragment {
 
         Intent iResult = getActivity().getIntent();
         if (iResult.getExtras().get("result").toString().equals("win")){
-            mResultText.setText("You won");
+            mResultText.setText("You've reached the gold!");
         } else {
-            mResultText.setText("Game over");
+            mResultText.setText("You've fallen into the pit of despair");
         }
     }
 }
