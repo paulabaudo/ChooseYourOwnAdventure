@@ -53,12 +53,12 @@ public class RoomFragment extends Fragment {
                 switch (value){
                     case 1:
                         Intent iWin = new Intent(getActivity(),ResultActivity.class);
-                        iWin.putExtra("result",1);
+                        iWin.putExtra("result","win");
                         startActivity(iWin);
                         break;
                     case 2:
                         Intent iLoose = new Intent(getActivity(),ResultActivity.class);
-                        iLoose.putExtra("result", 2);
+                        iLoose.putExtra("result", "lose");
                         startActivity(iLoose);
                         break;
                     case 3:
