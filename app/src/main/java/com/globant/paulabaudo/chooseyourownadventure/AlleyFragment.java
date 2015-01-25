@@ -50,8 +50,8 @@ public class AlleyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Random chance = new Random();
-                int valor = chance.nextInt(10) + 1;
-                switch (valor){
+                int value = chance.nextInt(10) + 1;
+                switch (value){
                     case 1:
                         Intent iWin = new Intent(getActivity(),ResultActivity.class);
                         iWin.putExtra("result",1);
