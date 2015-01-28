@@ -66,11 +66,13 @@ public class RoomFragment extends Fragment {
                     case 5:
                     case 6:
                         getFragmentManager().beginTransaction().
-                                replace(R.id.frame_adventure, new AlleyFragment()).commit();
+                                replace(R.id.frame_adventure, new AlleyFragment()).
+                                addToBackStack(getClass().getName()).commit();
                         break;
                     default:
                         getFragmentManager().beginTransaction().
-                                replace(R.id.frame_adventure, new RoomFragment()).commit();
+                                replace(R.id.frame_adventure, new RoomFragment()).
+                                addToBackStack(getClass().getName()).commit();
                         break;
                 }
             }
@@ -82,7 +84,8 @@ public class RoomFragment extends Fragment {
 
     private void insertResultFragment(ResultFragment resultFragment) {
         getFragmentManager().beginTransaction().
-                replace(R.id.frame_adventure, resultFragment).commit();
+                replace(R.id.frame_adventure, resultFragment).
+                addToBackStack(getClass().getName()).commit();
     }
 
     private void passArgumentsToFragment(ResultFragment resultFragment, int value) {

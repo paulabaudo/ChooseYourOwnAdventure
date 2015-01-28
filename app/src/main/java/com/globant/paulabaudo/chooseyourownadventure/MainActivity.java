@@ -19,7 +19,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().
-                add(R.id.frame_adventure, new StartFragment()).commit();
+                add(R.id.frame_adventure, new StartFragment()).
+                addToBackStack(getClass().getName()).commit();
     }
 
     @Override
