@@ -1,6 +1,7 @@
 package com.globant.paulabaudo.chooseyourownadventure;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,12 +9,18 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
 
+    public final static String RESULT = "RESULT";
+    public final static String RESULT_WIN = "RESULT_WIN";
+    public final static String RESULT_LOOSE = "RESULT_LOOSE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().
+                add(R.id.frame_adventure, new StartFragment()).commit();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,4 +43,5 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

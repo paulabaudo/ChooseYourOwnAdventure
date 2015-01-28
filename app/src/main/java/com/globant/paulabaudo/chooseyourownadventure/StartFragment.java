@@ -46,11 +46,11 @@ public class StartFragment extends Fragment {
                 Random randomScreen = new Random();
                 int screen = randomScreen.nextInt(2);
                 if (screen == 0){
-                    Intent iAlley = new Intent(getActivity(), AlleyActivity.class);
-                    startActivity(iAlley);
+                    getFragmentManager().beginTransaction().
+                            replace(R.id.frame_adventure, new AlleyFragment()).commit();
                 } else {
-                    Intent iRoom = new Intent(getActivity(), RoomActivity.class);
-                    startActivity(iRoom);
+                    getFragmentManager().beginTransaction().
+                            replace(R.id.frame_adventure, new RoomFragment()).commit();
                 }
             }
         });

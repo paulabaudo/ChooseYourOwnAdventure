@@ -36,11 +36,10 @@ public class ResultFragment extends Fragment {
     private void init(){
         mResultText = (TextView) getView().findViewById(R.id.text_view_result);
 
-        Intent iResult = getActivity().getIntent();
-        if (iResult.getExtras().get("result").toString().equals("win")){
-            mResultText.setText("You've reached the gold!");
+        if (getArguments().get(MainActivity.RESULT).equals(MainActivity.RESULT_WIN)){
+            mResultText.setText(getResources().getString(R.string.text_win));
         } else {
-            mResultText.setText("You've fallen into the pit of despair");
+            mResultText.setText(getResources().getString(R.string.text_loose));
         }
     }
 }

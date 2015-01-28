@@ -52,25 +52,25 @@ public class RoomFragment extends Fragment {
                 int value = chance.nextInt(10) + 1;
                 switch (value){
                     case 1:
-                        Intent iWin = new Intent(getActivity(),ResultActivity.class);
-                        iWin.putExtra("result","win");
-                        startActivity(iWin);
+                        ResultFragment resultFragmentW = new ResultFragment();
+                        passArgumentsToFragment(resultFragmentW, value);
+                        insertResultFragment(resultFragmentW);
                         break;
                     case 2:
-                        Intent iLoose = new Intent(getActivity(),ResultActivity.class);
-                        iLoose.putExtra("result", "lose");
-                        startActivity(iLoose);
+                        ResultFragment resultFragmentL = new ResultFragment();
+                        passArgumentsToFragment(resultFragmentL, value);
+                        insertResultFragment(resultFragmentL);
                         break;
                     case 3:
                     case 4:
                     case 5:
                     case 6:
-                        Intent iAlley = new Intent(getActivity(),AlleyActivity.class);
-                        startActivity(iAlley);
+                        getFragmentManager().beginTransaction().
+                                replace(R.id.frame_adventure, new AlleyFragment()).commit();
                         break;
                     default:
-                        Intent iRoom = new Intent(getActivity(),RoomActivity.class);
-                        startActivity(iRoom);
+                        getFragmentManager().beginTransaction().
+                                replace(R.id.frame_adventure, new RoomFragment()).commit();
                         break;
                 }
             }
@@ -78,6 +78,21 @@ public class RoomFragment extends Fragment {
 
         mDoor1Button.setOnClickListener(listener);
         mDoor2Button.setOnClickListener(listener);
+    }
+
+    private void insertResultFragment(ResultFragment resultFragment) {
+        getFragmentManager().beginTransaction().
+                replace(R.id.frame_adventure, resultFragment).commit();
+    }
+
+    private void passArgumentsToFragment(ResultFragment resultFragment, int value) {
+        Bundle resultArguments = new Bundle();
+        if (value==1){
+            resultArguments.putString(MainActivity.RESULT, MainActivity.RESULT_WIN);
+        } else {
+            resultArguments.putString(MainActivity.RESULT, MainActivity.RESULT_LOOSE);
+        }
+        resultFragment.setArguments(resultArguments);
     }
 
 }

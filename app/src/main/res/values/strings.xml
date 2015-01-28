@@ -18,5 +18,7 @@
     <string name="button_door_one_text">Enter Door 1</string>
     <string name="button_door_two_text">Enter Door 2</string>
     <string name="title_activity_result">ResultActivity</string>
+    <string name="text_win">You\'ve reached the gold!</string>
+    <string name="text_loose">You\'ve fallen into the pit of despair</string>
 
 </resources>
