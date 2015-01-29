@@ -1,6 +1,7 @@
 package com.globant.paulabaudo.chooseyourownadventure;
 
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -68,12 +69,12 @@ public class AlleyFragment extends Fragment {
                     case 6:
                         getFragmentManager().beginTransaction().
                                 replace(R.id.frame_adventure, new AlleyFragment()).
-                                addToBackStack(getClass().getName()).commit();
+                                addToBackStack(null).commit();
                         break;
                     default:
                         getFragmentManager().beginTransaction().
                                 replace(R.id.frame_adventure, new RoomFragment()).
-                                addToBackStack(getClass().getName()).commit();
+                                addToBackStack(null).commit();
                         break;
                 }
             }
@@ -85,9 +86,10 @@ public class AlleyFragment extends Fragment {
     }
 
     private void insertResultFragment(ResultFragment resultFragment) {
+        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         getFragmentManager().beginTransaction().
                 replace(R.id.frame_adventure, resultFragment).
-                addToBackStack(getClass().getName()).commit();
+                commit();
     }
 
     private void passArgumentsToFragment(ResultFragment resultFragment, int value) {

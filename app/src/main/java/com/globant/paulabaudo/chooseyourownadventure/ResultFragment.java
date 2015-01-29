@@ -1,6 +1,7 @@
 package com.globant.paulabaudo.chooseyourownadventure;
 
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -41,5 +42,6 @@ public class ResultFragment extends Fragment {
         } else {
             mResultText.setText(getResources().getString(R.string.text_loose));
         }
+
     }
 }

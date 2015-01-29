@@ -48,11 +48,11 @@ public class StartFragment extends Fragment {
                 if (screen == 0){
                     getFragmentManager().beginTransaction().
                             replace(R.id.frame_adventure, new AlleyFragment()).
-                            addToBackStack(getClass().getName()).commit();
+                            addToBackStack(null).commit();
                 } else {
                     getFragmentManager().beginTransaction().
                             replace(R.id.frame_adventure, new RoomFragment()).
-                            addToBackStack(getClass().getName()).commit();
+                            addToBackStack(null).commit();
                 }
             }
         });
