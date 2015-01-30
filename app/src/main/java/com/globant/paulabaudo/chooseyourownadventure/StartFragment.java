@@ -21,6 +21,12 @@ public class StartFragment extends Fragment {
 
     Button mStartButton;
     public static String DIFFICULTY;
+    public final static int DIFFICULTY_LOW_VALUE = 15;
+    public final static int DIFFICULTY_MEDIUM_VALUE = 10;
+    public final static int DIFFICULTY_HIGH_VALUE = 5;
+    public final static String DIFFICULTY_LOW = "LOW";
+    public final static String DIFFICULTY_MEDIUM = "MEDIUM";
+    public final static String DIFFICULTY_HIGH = "HIGH";
 
     public StartFragment() {
 
@@ -67,13 +73,13 @@ public class StartFragment extends Fragment {
         int id = difficultyGroup.getCheckedRadioButtonId();
         switch (id){
             case R.id.radio_button_low:
-                DIFFICULTY = "LOW";
+                DIFFICULTY = DIFFICULTY_LOW;
                 break;
             case R.id.radio_button_medium:
-                DIFFICULTY = "MEDIUM";
+                DIFFICULTY = DIFFICULTY_MEDIUM;
                 break;
             case R.id.radio_button_high:
-                DIFFICULTY = "HIGH";
+                DIFFICULTY = DIFFICULTY_HIGH;
                 break;
         }
     }

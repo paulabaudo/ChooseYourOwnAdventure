@@ -2,14 +2,12 @@ package com.globant.paulabaudo.chooseyourownadventure;
 
 
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import java.util.Random;
 
@@ -21,6 +19,8 @@ public class RoomFragment extends Fragment {
 
     Button mDoor1Button;
     Button mDoor2Button;
+    int mWin;
+    int mLoose;
 
     public RoomFragment() {
         // Required empty public constructor
@@ -49,35 +49,50 @@ public class RoomFragment extends Fragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random chance = new Random();
-                int value = chance.nextInt(10) + 1;
-                switch (value){
-                    case 1:
-                        ResultFragment resultFragmentW = new ResultFragment();
-                        passArgumentsToFragment(resultFragmentW, value);
-                        insertResultFragment(resultFragmentW);
-                        break;
-                    case 2:
-                        ResultFragment resultFragmentL = new ResultFragment();
-                        passArgumentsToFragment(resultFragmentL, value);
-                        insertResultFragment(resultFragmentL);
-                        break;
-                    case 3: case 4: case 5: case 6:
+            Random chance = new Random();
+            int value = chance.nextInt(100) + 1;
+            setDifficultyValues();
+            if (value<=mWin){
+                ResultFragment resultFragmentW = new ResultFragment();
+                passArgumentsToFragment(resultFragmentW, 1);
+                insertResultFragment(resultFragmentW);
+            } else {
+                if (value>mWin && value<=(mLoose+mWin)){
+                    ResultFragment resultFragmentL = new ResultFragment();
+                    passArgumentsToFragment(resultFragmentL, 2);
+                    insertResultFragment(resultFragmentL);
+                } else {
+                    if (value>(mLoose+mWin) && value<=60){
                         getFragmentManager().beginTransaction().
                                 replace(R.id.frame_adventure, new AlleyFragment()).
                                 addToBackStack(null).commit();
-                        break;
-                    default:
+                    } else {
                         getFragmentManager().beginTransaction().
                                 replace(R.id.frame_adventure, new RoomFragment()).
                                 addToBackStack(null).commit();
-                        break;
+                    }
                 }
+            }
             }
         };
 
         mDoor1Button.setOnClickListener(listener);
         mDoor2Button.setOnClickListener(listener);
+    }
+
+    private void setDifficultyValues() {
+        if (StartFragment.DIFFICULTY.equals(StartFragment.DIFFICULTY_LOW)){
+           mWin = StartFragment.DIFFICULTY_LOW_VALUE;
+            mLoose = StartFragment.DIFFICULTY_HIGH_VALUE;
+        } else {
+            if (StartFragment.DIFFICULTY.equals(StartFragment.DIFFICULTY_MEDIUM)){
+                mWin = StartFragment.DIFFICULTY_MEDIUM_VALUE;
+                mLoose = StartFragment.DIFFICULTY_MEDIUM_VALUE;
+            } else {
+                mWin = StartFragment.DIFFICULTY_HIGH_VALUE;
+                mLoose = StartFragment.DIFFICULTY_LOW_VALUE;
+            }
+        }
     }
 
     private void insertResultFragment(ResultFragment resultFragment) {

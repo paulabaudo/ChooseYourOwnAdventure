@@ -21,6 +21,8 @@ public class AlleyFragment extends Fragment {
     Button mLeftButton;
     Button mRightButton;
     Button mContinueButton;
+    int mWin;
+    int mLoose;
 
     public AlleyFragment() {
         // Required empty public constructor
@@ -50,36 +52,51 @@ public class AlleyFragment extends Fragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random chance = new Random();
-                int value = chance.nextInt(10) + 1;
-                switch (value){
-                    case 1:
-                        ResultFragment resultFragmentW = new ResultFragment();
-                        passArgumentsToFragment(resultFragmentW, value);
-                        insertResultFragment(resultFragmentW);
-                        break;
-                    case 2:
-                        ResultFragment resultFragmentL = new ResultFragment();
-                        passArgumentsToFragment(resultFragmentL, value);
-                        insertResultFragment(resultFragmentL);
-                        break;
-                    case 3: case 4: case 5: case 6:
+            Random chance = new Random();
+            int value = chance.nextInt(100) + 1;
+            setDifficultyValues();
+            if (value<=mWin){
+                ResultFragment resultFragmentW = new ResultFragment();
+                passArgumentsToFragment(resultFragmentW, 1);
+                insertResultFragment(resultFragmentW);
+            } else {
+                if (value>mWin && value<=(mLoose+mWin)){
+                    ResultFragment resultFragmentL = new ResultFragment();
+                    passArgumentsToFragment(resultFragmentL, 2);
+                    insertResultFragment(resultFragmentL);
+                } else {
+                    if (value>(mLoose+mWin) && value<=60){
                         getFragmentManager().beginTransaction().
                                 replace(R.id.frame_adventure, new AlleyFragment()).
                                 addToBackStack(null).commit();
-                        break;
-                    default:
+                    } else {
                         getFragmentManager().beginTransaction().
                                 replace(R.id.frame_adventure, new RoomFragment()).
                                 addToBackStack(null).commit();
-                        break;
+                    }
                 }
+            }
             }
         };
 
         mLeftButton.setOnClickListener(listener);
         mRightButton.setOnClickListener(listener);
         mContinueButton.setOnClickListener(listener);
+    }
+
+    private void setDifficultyValues() {
+        if (StartFragment.DIFFICULTY.equals(StartFragment.DIFFICULTY_LOW)){
+            mWin = StartFragment.DIFFICULTY_LOW_VALUE;
+            mLoose = StartFragment.DIFFICULTY_HIGH_VALUE;
+        } else {
+            if (StartFragment.DIFFICULTY.equals(StartFragment.DIFFICULTY_MEDIUM)){
+                mWin = StartFragment.DIFFICULTY_MEDIUM_VALUE;
+                mLoose = StartFragment.DIFFICULTY_MEDIUM_VALUE;
+            } else {
+                mWin = StartFragment.DIFFICULTY_HIGH_VALUE;
+                mLoose = StartFragment.DIFFICULTY_LOW_VALUE;
+            }
+        }
     }
 
     private void insertResultFragment(ResultFragment resultFragment) {
