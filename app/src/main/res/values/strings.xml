@@ -20,5 +20,9 @@
     <string name="title_activity_result">ResultActivity</string>
     <string name="text_win">You\'ve reached the gold!</string>
     <string name="text_loose">You\'ve fallen into the pit of despair</string>
+    <string name="text_view_difficulty_text">Chose a difficulty level...</string>
+    <string name="radio_button_low_text">Low</string>
+    <string name="radio_button_medium_text">Medium</string>
+    <string name="radio_button_high_text">High</string>
 
 </resources>

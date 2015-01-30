@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -19,6 +20,7 @@ import java.util.Random;
 public class StartFragment extends Fragment {
 
     Button mStartButton;
+    public static String DIFFICULTY;
 
     public StartFragment() {
 
@@ -43,6 +45,7 @@ public class StartFragment extends Fragment {
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getDifficulty();          
                 Random randomScreen = new Random();
                 int screen = randomScreen.nextInt(2);
                 if (screen == 0){
@@ -56,6 +59,23 @@ public class StartFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private void getDifficulty() {
+        RadioGroup difficultyGroup = (RadioGroup) getView().findViewById(R.id.radio_group_difficulty);
+
+        int id = difficultyGroup.getCheckedRadioButtonId();
+        switch (id){
+            case R.id.radio_button_low:
+                DIFFICULTY = "LOW";
+                break;
+            case R.id.radio_button_medium:
+                DIFFICULTY = "MEDIUM";
+                break;
+            case R.id.radio_button_high:
+                DIFFICULTY = "HIGH";
+                break;
+        }
     }
 
 }
