@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().
                 add(R.id.frame_adventure, new StartFragment()).
-                addToBackStack(null).commit();
+                commit();
     }
 
     @Override
