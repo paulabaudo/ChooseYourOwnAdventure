@@ -43,9 +43,9 @@ public class ResultFragment extends Fragment {
         mResultText = (TextView) getView().findViewById(R.id.text_view_result);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String winnerMessage = sharedPreferences.getString(WIN_MESSAGE_PREF,
+        String winnerMessage = BRAVE_FIGHTER + ": " + sharedPreferences.getString(WIN_MESSAGE_PREF,
                 getResources().getString(R.string.text_win));
-        String loserMessage = sharedPreferences.getString(LOSE_MESSAGE_PREF,
+        String loserMessage = BRAVE_FIGHTER + ": " + sharedPreferences.getString(LOSE_MESSAGE_PREF,
                 getResources().getString(R.string.text_loose));
 
         if (getArguments().get(MainActivity.RESULT).equals(MainActivity.RESULT_WIN)){
