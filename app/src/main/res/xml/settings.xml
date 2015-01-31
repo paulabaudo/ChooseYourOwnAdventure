@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_customized_messages">
+        <EditTextPreference android:key="username_preference"
+            android:title="@string/pref_username_title" android:summary="@string/pref_username_summary"/>
+        <EditTextPreference android:key="win_message_preference"
+            android:title="@string/pref_win_message_title" android:summary="@string/pref_win_message_summary"/>
+        <EditTextPreference android:key="lose_message_preference"
+            android:title="@string/pref_lose_message_title" android:summary="@string/pref_lose_message_summary"/>
+    </PreferenceCategory>
+</PreferenceScreen>

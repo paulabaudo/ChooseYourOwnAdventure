@@ -24,5 +24,13 @@
     <string name="radio_button_low_text">Low</string>
     <string name="radio_button_medium_text">Medium</string>
     <string name="radio_button_high_text">High</string>
+    <string name="pref_customized_messages">Customized messages</string>
+    <string name="pref_username_title">Username</string>
+    <string name="pref_username_summary">Username for a personalized message</string>
+    <string name="pref_win_message_title">Winner\'s message</string>
+    <string name="pref_win_message_summary">Personalized message for the winner\'s screen</string>
+    <string name="pref_lose_message_title">Loser\'s message</string>
+    <string name="pref_lose_message_summary">Personalized message for the loser\'s screen</string>
+    <string name="activity_settings_title">Settings</string>
 
 </resources>

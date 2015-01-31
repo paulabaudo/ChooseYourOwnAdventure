@@ -2,6 +2,7 @@ package com.globant.paulabaudo.chooseyourownadventure;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,6 +40,8 @@ public class MainActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent iSettings = new Intent(this, SettingsActivity.class);
+            startActivity(iSettings);
             return true;
         }
 
