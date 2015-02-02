@@ -22,6 +22,7 @@ public class ResultFragment extends Fragment {
     final static String BRAVE_FIGHTER = "Brave Fighter";
     final static String WIN_MESSAGE_PREF = "win_message_preference";
     final static String LOSE_MESSAGE_PREF = "lose_message_preference";
+    final static String USER_NAME = "username_preference";
 
     public ResultFragment() {
         // Required empty public constructor
@@ -43,10 +44,10 @@ public class ResultFragment extends Fragment {
         mResultText = (TextView) getView().findViewById(R.id.text_view_result);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String winnerMessage = BRAVE_FIGHTER + ": " + sharedPreferences.getString(WIN_MESSAGE_PREF,
-                getResources().getString(R.string.text_win));
-        String loserMessage = BRAVE_FIGHTER + ": " + sharedPreferences.getString(LOSE_MESSAGE_PREF,
-                getResources().getString(R.string.text_loose));
+        String winnerMessage = sharedPreferences.getString(USER_NAME, BRAVE_FIGHTER) + ": " +
+                sharedPreferences.getString(WIN_MESSAGE_PREF,getResources().getString(R.string.text_win));
+        String loserMessage = sharedPreferences.getString(USER_NAME, BRAVE_FIGHTER) + ": " +
+                sharedPreferences.getString(LOSE_MESSAGE_PREF,getResources().getString(R.string.text_loose));
 
         if (getArguments().get(MainActivity.RESULT).equals(MainActivity.RESULT_WIN)){
             mResultText.setText(winnerMessage);
